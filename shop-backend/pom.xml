@@ -11,7 +11,7 @@
     <groupId>ru.geekbrains.backend</groupId>
     <artifactId>shop-backend</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>onlineshop</name>
+    <name>online-shop</name>
     <description>GB Course project</description>
     <properties>
         <java.version>11</java.version>
