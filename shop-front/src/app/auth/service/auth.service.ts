@@ -20,10 +20,8 @@ export class AuthService {
 
   public registration(request: User): Observable<User> {
     console.log(request);
-    return this.httpClient.post<User>(this.backendAuthURI + '/register', request);
+    return this.httpClient.put<User>(this.backendAuthURI + '/register', request);
   }
-
-
 }
 
 export class User {

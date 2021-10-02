@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'logout', redirectTo: '', pathMatch: 'full'},
   {path: 'index', redirectTo: '', pathMatch: 'full'},
   {path: 'register', component: RegistrationComponent, pathMatch: 'full'},
-  {path: 'info-page', component: InfoPageComponent, pathMatch: 'full'},
+  {path: 'info-page', component: InfoPageComponent},
   //with auth
 
 ];
