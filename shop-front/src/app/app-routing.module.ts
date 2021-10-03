@@ -4,6 +4,7 @@ import {LoginComponent} from "./auth/login/login.component";
 import {RegistrationComponent} from "./auth/registration/registration.component";
 import {InfoPageComponent} from "./auth/info-page/info-page.component";
 import {ActivateAccountComponent} from "./auth/activate-account/activate-account.component";
+import {SendEmailResetPasswordComponent} from "./auth/password-reset/send-email/send-email-reset-password.component";
 
 // модуль для настройки роутингов
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'register', component: RegistrationComponent, pathMatch: 'full'},
   {path: 'activate-account/:uuid', component: ActivateAccountComponent},
   {path: 'info-page', component: InfoPageComponent},
+  {path: 'reset-password', component: SendEmailResetPasswordComponent}
 
   //with auth
 

@@ -24,6 +24,10 @@ export class AuthService {
   public activateAccount(request: string): Observable<boolean> {
     return this.httpClient.post<boolean>(this.backendAuthURI + '/activate-account', request);
   }
+
+  sendResetPasswordEmail(request: string): Observable<boolean> {
+    return this.httpClient.post<boolean>(this.backendAuthURI + '/send-reset-password-email', request);
+  }
 }
 
 export class User {
