@@ -9,13 +9,15 @@ import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RegistrationComponent} from './auth/registration/registration.component';
 import {InfoPageComponent} from './auth/info-page/info-page.component';
+import {ActivateAccountComponent} from './auth/activate-account/activate-account.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    InfoPageComponent
+    InfoPageComponent,
+    ActivateAccountComponent
   ],
   imports: [
     BrowserModule,

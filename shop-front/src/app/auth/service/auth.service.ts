@@ -14,13 +14,15 @@ export class AuthService {
   }
 
   public login(request: User): Observable<User> {
-    console.log(request);
     return this.httpClient.post<User>(this.backendAuthURI + '/login', request);
   }
 
-  public registration(request: User): Observable<User> {
-    console.log(request);
+  public registration(request: User): Observable<any> {
     return this.httpClient.put<User>(this.backendAuthURI + '/register', request);
+  }
+
+  public activateAccount(request: string): Observable<boolean> {
+    return this.httpClient.post<boolean>(this.backendAuthURI + '/activate-account', request);
   }
 }
 
