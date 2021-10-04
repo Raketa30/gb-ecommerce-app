@@ -11,6 +11,7 @@ import {RegistrationComponent} from './auth/registration/registration.component'
 import {InfoPageComponent} from './auth/info-page/info-page.component';
 import {ActivateAccountComponent} from './auth/activate-account/activate-account.component';
 import {SendEmailResetPasswordComponent} from './auth/password-reset/send-email/send-email-reset-password.component';
+import {ResetPasswordComponent} from './auth/password-reset/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {SendEmailResetPasswordComponent} from './auth/password-reset/send-email/
     RegistrationComponent,
     InfoPageComponent,
     ActivateAccountComponent,
-    SendEmailResetPasswordComponent
+    SendEmailResetPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
