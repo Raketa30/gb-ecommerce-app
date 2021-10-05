@@ -19,7 +19,12 @@ public class CategorySoapServiceImpl implements CategorySoapService {
         category.setTitle(ce.getTitle());
         category.setAlias(ce.getAlias());
         category.setParentCategoryAlias(ce.getParentCategory().getTitle());
-        category.getSubCategories().addAll(ce.getSubCategories().stream().map(CategoryEntity::getId).collect(Collectors.toList()));
+        category.getSubCategories().addAll(
+                ce.getSubCategories()
+                        .stream()
+                        .map(CategoryEntity::getId)
+                        .collect(Collectors.toList())
+        );
 
         return category;
     };
