@@ -40,7 +40,9 @@ public class AuthTokenFilter extends OncePerRequestFilter {
             AUTH + "/activate-account",
             AUTH + "/test-no-auth",
             AUTH + "/send-reset-password-email",
-            AUTH + "/resend-activate-email"
+            AUTH + "/resend-activate-email",
+            "/ws/products.wsdl",
+            "/ws/categories.wsdl"
     );
 
     @Autowired

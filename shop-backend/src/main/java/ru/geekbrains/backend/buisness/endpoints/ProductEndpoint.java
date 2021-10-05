@@ -21,7 +21,7 @@ public class ProductEndpoint {
         this.productService = productService;
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getProductListRequest")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getProductByTitleRequest")
     @ResponsePayload
     @Transactional
     public GetProductByTitleResponse getProductByTitle(@RequestPayload GetProductByTitleRequest request) {
