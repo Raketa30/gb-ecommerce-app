@@ -19,6 +19,7 @@ import ru.geekbrains.backend.security.service.RoleService;
 import ru.geekbrains.backend.security.service.UserService;
 
 import java.util.Collections;
+import java.util.Optional;
 import java.util.UUID;
 
 import static ru.geekbrains.backend.constants.NameConstant.DEFAULT_ROLE;
@@ -44,7 +45,13 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserEntity user = userRepository.findByUsername(username)
+        Optional<UserEntity> optionalUser = userRepository.findByUsername(username);
+
+        if (optionalUser.isEmpty()) {
+            optionalUser = userRepository.findByEmail(username);
+        }
+
+        UserEntity user = optionalUser
                 .orElseThrow(() -> new UsernameNotFoundException(String.format("User '%s' not found", username)));
         return new UserDetailsImpl(user);
     }

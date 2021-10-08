@@ -15,6 +15,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.session.SessionManagementFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import ru.geekbrains.backend.security.filter.AuthTokenFilter;
 import ru.geekbrains.backend.security.filter.ExceptionHandlerFilter;
 import ru.geekbrains.backend.security.service.UserService;
@@ -24,7 +26,7 @@ import ru.geekbrains.backend.security.service.UserService;
 @EnableWebSecurity(debug = true)
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @EnableAsync
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
 
     private UserService userService;
 
@@ -51,6 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //стейтлесс
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
+        http.cors();
         http.csrf().disable();
 
         //Отключаем авторизацию тк форма авторизации создается не на спринг технологии
@@ -72,7 +75,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder(8);
     }
 
-
     @Bean
     @Override
     protected AuthenticationManager authenticationManager() throws Exception {
@@ -93,5 +95,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth
                 .userDetailsService(userService)
                 .passwordEncoder(passwordEncoder());
+    }
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("https://localhost:4200")
+                .allowedMethods("*");
     }
 }

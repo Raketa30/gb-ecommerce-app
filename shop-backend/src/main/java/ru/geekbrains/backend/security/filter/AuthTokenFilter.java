@@ -2,6 +2,7 @@ package ru.geekbrains.backend.security.filter;
 
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -61,7 +62,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
         boolean isRequestToPublicAPI = permitURL.stream()
                 .anyMatch(s -> request.getRequestURI().toLowerCase().contains(s));
 
-        if (!isRequestToPublicAPI) {
+        if (!isRequestToPublicAPI && !request.getMethod().equals(HttpMethod.OPTIONS.toString())) {
             String jwt = null;
 
             if (request.getRequestURI().contains("update-password")) {

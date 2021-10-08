@@ -1,0 +1,24 @@
+
+.login,
+.image {
+  min-height: 100vh;
+}
+
+.bg-image {
+  background-image: url('src/assets/img/children.jpg');
+  background-size: cover;
+  background-position: center center;
+}
+
+.error {
+  font-size: 8px;
+  color: #c82333;
+}
+
+.field-error {
+  border: 1px solid rgba(214, 87, 55, 0.93);
+}
+
+.loading {
+  max-width: 40px;
+}

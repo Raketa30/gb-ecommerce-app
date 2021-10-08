@@ -13,8 +13,6 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.util.concurrent.Future;
 
-import static ru.geekbrains.backend.constants.NameConstant.AUTH;
-
 
 @Service
 @Log
@@ -37,7 +35,7 @@ public class EmailService {
             MimeMessage mimeMessage = sender.createMimeMessage();
             MimeMessageHelper message = new MimeMessageHelper(mimeMessage, "utf-8");
 
-            String url = clientURL + AUTH + "/activate-account/" + uuid;
+            String url = clientURL + "/activate-account/" + uuid;
 
             String htmlMsg = String.format(
                     "Hello Dear!<br/><br/>" +
@@ -65,7 +63,7 @@ public class EmailService {
             MimeMessage mimeMessage = sender.createMimeMessage();
             MimeMessageHelper message = new MimeMessageHelper(mimeMessage, "utf-8");
 
-            String url = clientURL + AUTH + "/update-password/" + token;
+            String url = clientURL + "/update-password/" + token;
 
             String htmlMsg = String.format(
                     "Hello Dear!<br/><br/>" +
