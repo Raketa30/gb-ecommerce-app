@@ -7,6 +7,7 @@ import ru.geekbrains.backend.buisness.domain.dto.CategoryDto;
 import ru.geekbrains.backend.buisness.domain.entity.CategoryEntity;
 import ru.geekbrains.backend.buisness.repository.CategoryRepository;
 import ru.geekbrains.backend.buisness.service.CategoryService;
+import ru.geekbrains.backend.buisness.soap.categories.Category;
 
 import java.util.HashSet;
 import java.util.List;
@@ -67,6 +68,11 @@ public class CategoryServiceImpl implements CategoryService {
     @Transactional
     public void deleteById(Long id) {
         categoryRepository.deleteById(id);
+    }
+
+    @Override
+    public Category findCategoryByTitle(String title) {
+        return null;
     }
 
     private List<CategoryDto> getCategoryDtoList(List<CategoryEntity> categoryEntities) {

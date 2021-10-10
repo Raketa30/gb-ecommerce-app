@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://gbshop.ru/soap/ws/categories"
+           targetNamespace="http://gbshop.ru/soap/ws/categories"
+           elementFormDefault="qualified">
+
+    <xs:import schemaLocation="products.xsd" namespace="http://gbshop.ru/soap/ws/products"/>
+
+    <xs:complexType name="category">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="alias" type="xs:string"/>
+            <xs:element name="parentCategoryAlias" type="xs:string"/>
+            <xs:element name="subCategories" maxOccurs="unbounded" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:element name="getCategoryByTitleRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="title" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getCategoryByTitleResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="category" type="tns:category"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

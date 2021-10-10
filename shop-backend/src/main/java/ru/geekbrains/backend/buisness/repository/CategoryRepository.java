@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 import ru.geekbrains.backend.buisness.domain.entity.CategoryEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<CategoryEntity, Long> {
@@ -12,4 +13,5 @@ public interface CategoryRepository extends JpaRepository<CategoryEntity, Long> 
 
     CategoryEntity findByAlias(String parentCategoryAlias);
 
+    Optional<CategoryEntity> findByTitle(String title);
 }

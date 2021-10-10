@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://gbshop.ru/soap/ws/products"
+           targetNamespace="http://gbshop.ru/soap/ws/products"
+           elementFormDefault="qualified">
+    <xs:complexType name="product">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="cost" type="xs:double"/>
+            <xs:element name="imageLink" type="xs:string"/>
+            <xs:element name="categoryIdList" maxOccurs="unbounded" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="getProductListRequest">
+        <xs:complexType/>
+    </xs:element>
+
+    <xs:element name="getProductListResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="products" maxOccurs="unbounded" type="tns:product"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getProductByTitleRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="title" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getProductByTitleResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="product" type="tns:product"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
