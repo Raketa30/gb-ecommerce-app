@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import ru.geekbrains.backend.annotation.MethodInfo;
 import ru.geekbrains.backend.buisness.domain.dto.ProductDto;
 import ru.geekbrains.backend.buisness.domain.entity.ProductEntity;
 import ru.geekbrains.backend.buisness.domain.search.ProductSearchValues;
@@ -29,6 +30,7 @@ public class ProductController {
     }
 
     @GetMapping("/list")
+    @MethodInfo
     public ResponseEntity<ProductSearchValues> getProductList(ProductSearchValues searchValues) {
         Page<ProductDto> page = productService.findAllPaginated(searchValues);
         searchValues.setPage(page);
@@ -45,6 +47,7 @@ public class ProductController {
     }
 
     @PutMapping("/add")
+    @MethodInfo
     public ResponseEntity<ProductEntity> addProduct(@RequestPart ProductDto productDto,
                                                     @RequestPart(required = false) MultipartFile image) {
         if (productDto.getId() != null && productDto.getId() != 0) {
