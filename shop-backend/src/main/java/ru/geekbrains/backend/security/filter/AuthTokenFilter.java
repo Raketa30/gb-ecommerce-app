@@ -41,7 +41,8 @@ public class AuthTokenFilter extends OncePerRequestFilter {
             AUTH + "/test-no-auth",
             AUTH + "/send-reset-password-email",
             AUTH + "/resend-activate-email",
-            "actuator"
+            "actuator",
+            "admin"
     );
 
     @Autowired
