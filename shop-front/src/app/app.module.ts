@@ -13,6 +13,7 @@ import {ActivateAccountComponent} from './auth/activate-account/activate-account
 import {SendEmailResetPasswordComponent} from './auth/password-reset/send-email/send-email-reset-password.component';
 import {ResetPasswordComponent} from './auth/password-reset/reset-password/reset-password.component';
 import {RequestInterceptor} from "./auth/Interceptor/request-interceptor.service";
+import {ProductComponent} from './buisness/product/product.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {RequestInterceptor} from "./auth/Interceptor/request-interceptor.service
     InfoPageComponent,
     ActivateAccountComponent,
     SendEmailResetPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

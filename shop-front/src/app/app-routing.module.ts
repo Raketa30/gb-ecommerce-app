@@ -6,13 +6,15 @@ import {InfoPageComponent} from "./auth/info-page/info-page.component";
 import {ActivateAccountComponent} from "./auth/activate-account/activate-account.component";
 import {SendEmailResetPasswordComponent} from "./auth/password-reset/send-email/send-email-reset-password.component";
 import {ResetPasswordComponent} from "./auth/password-reset/reset-password/reset-password.component";
+import {ProductComponent} from "./buisness/product/product.component";
 
 // модуль для настройки роутингов
 
 //список роутов
 const routes: Routes = [
   // no auth
-  {path: '', component: LoginComponent},
+  {path: '', component: ProductComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'logout', redirectTo: '', pathMatch: 'full'},
   {path: 'index', redirectTo: '', pathMatch: 'full'},
   {path: 'register', component: RegistrationComponent, pathMatch: 'full'},
