@@ -18,7 +18,7 @@ export class RequestInterceptor implements HttpInterceptor {
 
     if (request.url.includes('update-password')) {
       const token = request.params.get('token');
-      request.params.delete(token);
+      request.params.delete('token');
 
       request = request.clone({
           setHeaders: ({

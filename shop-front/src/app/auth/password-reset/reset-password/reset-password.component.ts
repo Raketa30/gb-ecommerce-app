@@ -54,7 +54,7 @@ export class ResetPasswordComponent implements OnInit {
 
     this.isLoading = true;
 
-    this.authService.resetPassword(this.passwordRepeatField.value, this.token).subscribe(
+    this.authService.resetPassword(this.passwordField.value, this.token).subscribe(
       result => {
         this.isLoading = false;
 
