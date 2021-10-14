@@ -1,2 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
 @import "app/auth/auth-style.css";
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.site-btn {
+  display: inline-block;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  padding: 12px 30px;
+  min-width: 138px;
+  font-weight: 500;
+  border: none;
+  background: #414141;
+  cursor: pointer;
+  line-height: normal;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.site-btn:hover {
+  color: #fff;
+}
+
+.site-btn.btn-line {
+  background: transparent;
+  border: 2px solid #414141;
+  color: #414141;
+  padding: 12px 20px;
+}
+
+.site-btn.btn-line:hover {
+  background: #b09d81;
+  border: 2px solid #b09d81;
+  color: #fff;
+}

@@ -54,7 +54,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         http.cors();
-        http.csrf().disable();
+        http.csrf().disable().authorizeRequests().antMatchers(
+                "/v2/api-docs",
+                "/configuration/ui",
+                "/swagger-resources/**",
+                "/configuration/**",
+                "/swagger-ui.html",
+                "/webjars/**").permitAll();
 
         //Отключаем авторизацию тк форма авторизации создается не на спринг технологии
         http.formLogin().disable();

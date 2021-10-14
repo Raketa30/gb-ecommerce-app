@@ -39,7 +39,13 @@ public class AuthTokenFilter extends OncePerRequestFilter {
             AUTH + "/activate-account",
             AUTH + "/test-no-auth",
             AUTH + "/send-reset-password-email",
-            AUTH + "/resend-activate-email"
+            AUTH + "/resend-activate-email",
+            "/v2/api-docs",
+            "/configuration/ui",
+            "/swagger-resources/**",
+            "/configuration/**",
+            "/swagger-ui.html",
+            "/webjars/**"
     );
 
     @Autowired

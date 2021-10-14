@@ -1,0 +1,85 @@
+/*------------------
+  Blog section
+---------------------*/
+
+.blog-section {
+  background: #f2f4f9;
+}
+
+.blog-section .bgs-title {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 85px;
+}
+
+.blog-item {
+  overflow: hidden;
+  margin-bottom: 33px;
+}
+
+.blog-item:last-child {
+  margin-bottom: 0;
+}
+
+.blog-item .bi-thumb {
+  float: left;
+  max-width: 166px;
+}
+
+.blog-item .bi-content {
+  padding-left: 196px;
+}
+
+.blog-item .bi-content h5 {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.blog-item .bi-content .bi-meta {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #bca480;
+  margin-bottom: 30px;
+}
+
+.blog-item .bi-content .readmore {
+  font-size: 14px;
+  color: #949494;
+}
+
+
+.site-btn {
+  display: inline-block;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  padding: 12px 30px;
+  min-width: 138px;
+  font-weight: 500;
+  border: none;
+  background: #414141;
+  cursor: pointer;
+  line-height: normal;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.site-btn:hover {
+  color: #fff;
+}
+
+.site-btn.btn-line {
+  background: transparent;
+  border: 2px solid #414141;
+  color: #414141;
+  padding: 12px 20px;
+}
+
+.site-btn.btn-line:hover {
+  background: #b09d81;
+  border: 2px solid #b09d81;
+  color: #fff;
+}

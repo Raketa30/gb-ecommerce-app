@@ -14,6 +14,10 @@ import {SendEmailResetPasswordComponent} from './auth/password-reset/send-email/
 import {ResetPasswordComponent} from './auth/password-reset/reset-password/reset-password.component';
 import {RequestInterceptor} from "./auth/Interceptor/request-interceptor.service";
 import {ProductComponent} from './buisness/product/product.component';
+import {HeaderComponent} from './buisness/header/header.component';
+import {MainComponent} from './buisness/main/main.component';
+import {CartComponent} from './buisness/cart/cart.component';
+import {FilterComponent} from './buisness/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import {ProductComponent} from './buisness/product/product.component';
     ActivateAccountComponent,
     SendEmailResetPasswordComponent,
     ResetPasswordComponent,
-    ProductComponent
+    ProductComponent,
+    HeaderComponent,
+    MainComponent,
+    CartComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
