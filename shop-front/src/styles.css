@@ -44,3 +44,17 @@ body {
   border: 2px solid #b09d81;
   color: #fff;
 }
+
+.text-h3 {
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.routerLink {
+  color: #414141;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin-bottom: 10px;
+}

@@ -1,12 +1,15 @@
 import {Injectable} from '@angular/core';
 import {environment} from "../../../environments/environment";
 import {HttpClient, HttpParams} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  isLoggedIn = false;
+  currentUser = new BehaviorSubject<User>(null);
 
   backendAuthURI = environment.backendURL + '/api/v1/auth';
 

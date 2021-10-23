@@ -57,6 +57,9 @@ export class LoginComponent implements OnInit {
         this.isLoading = false;
 
         this.user = result;
+
+        this.authService.isLoggedIn = true;
+        this.authService.currentUser.next(this.user);
       },
 
       err => {
