@@ -18,6 +18,9 @@ import {HeaderComponent} from './buisness/header/header.component';
 import {MainComponent} from './buisness/main/main.component';
 import {CartComponent} from './buisness/cart/cart.component';
 import {FilterComponent} from './buisness/filter/filter.component';
+import {environment} from "../environments/environment";
+import {PRODUCT_URL_TOKEN} from "./buisness/data/dao/impl/ProductService";
+import {CATEGORY_URL_TOKEN} from "./buisness/data/dao/impl/CategoryService";
 
 @NgModule({
   declarations: [
@@ -44,6 +47,15 @@ import {FilterComponent} from './buisness/filter/filter.component';
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true},
+
+    {
+      provide: PRODUCT_URL_TOKEN,
+      useValue: environment.backendURL + environment.apiVersion + 'product'
+    },
+    {
+      provide: CATEGORY_URL_TOKEN,
+      useValue: environment.backendURL + environment.apiVersion + 'category'
+    }
   ],
   bootstrap: [AppComponent]
 })

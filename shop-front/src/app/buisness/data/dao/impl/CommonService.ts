@@ -13,8 +13,8 @@ export class CommonService<T> implements CommonDAO<T> {
     return this.httpClient.put<T>(this.url + "/add", obj);
   }
 
-  delete(id: number): Observable<T> {
-    return this.httpClient.post<T>(this.url + "/delete/", id);
+  delete(id: number): Observable<any> {
+    return this.httpClient.post<any>(this.url + "/delete/", id);
   }
 
   findAll(): Observable<T[]> {
@@ -25,8 +25,8 @@ export class CommonService<T> implements CommonDAO<T> {
     return this.httpClient.post<T>(this.url + "/id", id);
   }
 
-  update(obj: T): Observable<T> {
-    return this.httpClient.patch<T>(this.url + "/update", obj);
+  update(obj: T): Observable<any> {
+    return this.httpClient.patch<any>(this.url + "/update", obj);
   }
 
 }
