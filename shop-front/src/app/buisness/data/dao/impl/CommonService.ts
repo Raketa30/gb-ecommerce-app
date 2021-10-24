@@ -5,7 +5,8 @@ import {HttpClient} from "@angular/common/http";
 export class CommonService<T> implements CommonDAO<T> {
   private readonly url: string;
 
-  constructor(url: string, private httpClient: HttpClient) {
+  constructor(url: string,
+              private httpClient: HttpClient) {
     this.url = url;
   }
 

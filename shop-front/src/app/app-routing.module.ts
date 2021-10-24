@@ -6,8 +6,8 @@ import {InfoPageComponent} from "./auth/info-page/info-page.component";
 import {ActivateAccountComponent} from "./auth/activate-account/activate-account.component";
 import {SendEmailResetPasswordComponent} from "./auth/password-reset/send-email/send-email-reset-password.component";
 import {ResetPasswordComponent} from "./auth/password-reset/reset-password/reset-password.component";
-import {MainComponent} from "./buisness/view/main/main.component";
-import {CartComponent} from "./buisness/view/cart/cart.component";
+import {MainComponent} from "./buisness/view/page/main/main.component";
+import {CartComponent} from "./buisness/view/page/cart/cart.component";
 
 // модуль для настройки роутингов
 

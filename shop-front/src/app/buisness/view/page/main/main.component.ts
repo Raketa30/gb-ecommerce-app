@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {Product} from "../../model/product";
-import {Category} from "../../model/category";
-import {ProductService} from "../../data/dao/impl/ProductService";
-import {CategoryService} from "../../data/dao/impl/CategoryService";
-import {AuthService} from "../../../auth/service/auth.service";
+import {Product} from "../../../model/product";
+import {Category} from "../../../model/category";
+import {ProductService} from "../../../data/dao/impl/ProductService";
+import {CategoryService} from "../../../data/dao/impl/CategoryService";
+import {AuthService} from "../../../../auth/service/auth.service";
+import {ProductSearchValues} from "../../../data/dao/search/SearchObjects";
 
 @Component({
   selector: 'app-main',
@@ -20,13 +21,14 @@ export class MainComponent implements OnInit {
 
   products: Product[];
   categories: Category[];
+  productSearch: ProductSearchValues;
 
   constructor(
     private productService: ProductService,
     private categoryService: CategoryService,
     private authService: AuthService) {
-
-    this.productService.findAll().subscribe(res => this.products = res);
+    this.productSearch = new ProductSearchValues();
+    this.productService.findAllPaginated(this.productSearch).subscribe(res => this.products = res);
 
   }
 
@@ -39,7 +41,7 @@ export class MainComponent implements OnInit {
 
     // настройки бокового меню
     this.menuOpened = false;
-    this.menuMode = 'open';
+    this.menuMode = 'push';
     this.showBackdrop = false;
   }
 

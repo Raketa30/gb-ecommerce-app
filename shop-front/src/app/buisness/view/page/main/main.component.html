@@ -13,7 +13,9 @@
     [showBackdrop]="showBackdrop"
   >
     <div class="sidebar">
-      <p>categories</p>
+      <app-product-filter>
+
+      </app-product-filter>
     </div>
 
   </ng-sidebar>
@@ -28,7 +30,9 @@
             </app-product>
           </div>
           <div class="col-1 mt-3">
-            <button (click)="toggleSidebar()" [ngClass]="{'hidden': menuOpened}" class="site-btn f-btn">Filters</button>
+            <button (click)="toggleSidebar()" mat-icon-button>
+              <mat-icon>keyboard_arrow_left</mat-icon>
+            </button>
           </div>
         </div>
       </div>

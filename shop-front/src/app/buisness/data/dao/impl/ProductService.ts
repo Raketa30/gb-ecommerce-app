@@ -14,11 +14,12 @@ export const PRODUCT_URL_TOKEN = new InjectionToken<string>('product_url');
 
 export class ProductService extends CommonService<Product> implements ProductDAO {
   constructor(@Inject(PRODUCT_URL_TOKEN) private baseUrl,
-              httpClient: HttpClient) {
-    super(baseUrl, httpClient);
+              private http: HttpClient) {
+    super(baseUrl, http);
   }
 
-  findAllPaginated(productSearchValues: ProductSearchValues): Observable<Product> {
-    return undefined;
+  findAllPaginated(productSearchValues: ProductSearchValues): Observable<Product[]> {
+    return this.http.post<Product[]>(this.baseUrl + '/list', productSearchValues);
   }
+
 }
