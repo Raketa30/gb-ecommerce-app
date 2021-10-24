@@ -1,0 +1,16 @@
+<div class="mt-3 row d-flex-wrap justify-content-around">
+  <div *ngFor="let product of products, let index = index" class="col-lg-3 col-md-4 col-sm-12 col-xs-12 best  mb-2">
+    <div class="product-item">
+      <figure>
+        <img alt="" src="{{product.imageLink}}">
+      </figure>
+      <div class="product-info">
+        <h6>{{product.title}}</h6>
+        <p>{{product.cost}}</p>
+        <a class="site-btn btn-line" href="#">ADD TO CART</a>
+      </div>
+    </div>
+  </div>
+
+
+</div>

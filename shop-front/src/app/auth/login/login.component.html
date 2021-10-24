@@ -6,9 +6,9 @@
         <div class="form-group mb-3">
           <input [ngClass]="{ 'field-error': firstSubmitted && usernameField.errors }"
                  [readOnly]="isLoading"
-                 autofocus="" class="form-control shadow-sm px-4" f
+                 autofocus="" class="form-control shadow-sm px-4"
                  id="inputUsername"
-                 ormControlName="username"
+                 formControlName="username"
                  placeholder="Username"
                  required=""
                  type="text">

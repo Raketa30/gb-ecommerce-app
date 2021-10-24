@@ -44,6 +44,11 @@ public class ProductController {
         return new ResponseEntity<>(searchValues, HttpStatus.OK);
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<List<ProductDto>> findAll() {
+        return ResponseEntity.ok(productService.findAll());
+    }
+
     @PutMapping("/add")
     public ResponseEntity<ProductEntity> addProduct(@RequestPart ProductDto productDto,
                                                     @RequestPart(required = false) MultipartFile image) {

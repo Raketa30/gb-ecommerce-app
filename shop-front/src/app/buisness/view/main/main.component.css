@@ -1,15 +1,31 @@
 /*------------------
   Blog section
 ---------------------*/
+ng-sidebar-container {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+}
+
+ng-sidebar {
+  background-color: #949494;
+}
 
 .blog-section {
   background: #f2f4f9;
+}
+
+.sidebar {
 }
 
 .blog-section .bgs-title {
   text-transform: uppercase;
   font-weight: 700;
   margin-bottom: 85px;
+}
+
+.hidden {
+
 }
 
 .blog-item {
@@ -50,23 +66,6 @@
 }
 
 
-.site-btn {
-  display: inline-block;
-  text-align: center;
-  font-size: 14px;
-  color: #fff;
-  padding: 12px 30px;
-  min-width: 138px;
-  font-weight: 500;
-  border: none;
-  background: #414141;
-  cursor: pointer;
-  line-height: normal;
-  -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-}
-
 .site-btn:hover {
   color: #fff;
 }
@@ -83,3 +82,5 @@
   border: 2px solid #b09d81;
   color: #fff;
 }
+
+

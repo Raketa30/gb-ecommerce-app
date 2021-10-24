@@ -1,10 +1,14 @@
-import {Inject, InjectionToken} from "@angular/core";
+import {Inject, Injectable, InjectionToken} from "@angular/core";
 import {CommonService} from "./CommonService";
 import {Category} from "../../../model/category";
 import {CategoryDAO} from "../interface/CategoryDAO";
 import {HttpClient} from "@angular/common/http";
 
 export const CATEGORY_URL_TOKEN = new InjectionToken<string>('category_url');
+
+@Injectable({
+  providedIn: 'root'
+})
 
 export class CategoryService extends CommonService<Category> implements CategoryDAO {
 

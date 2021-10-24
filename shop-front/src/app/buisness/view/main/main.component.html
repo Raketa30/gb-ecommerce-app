@@ -1,0 +1,38 @@
+<ng-sidebar-container> <!--контейнер для внедрения слайд-меню-->
+
+  <!--  слайд-меню-->
+  <ng-sidebar
+
+    [animate]="true"
+    [autoFocus]="false"
+    [closeOnClickBackdrop]="true"
+    [closeOnClickOutside]="true"
+    [mode]="menuMode"
+    [opened]="menuOpened"
+    [position]="menuPosition"
+    [showBackdrop]="showBackdrop"
+  >
+    <div class="sidebar">
+      <p>categories</p>
+    </div>
+
+  </ng-sidebar>
+  <div ng-sidebar-content>
+    <app-header></app-header>
+    <section class="main-section spad">
+      <div class="container">
+        <div class="row d-flex flex-wrap justify-content-between">
+          <div class="col-11">
+            <app-product [products]="products">
+
+            </app-product>
+          </div>
+          <div class="col-1 mt-3">
+            <button (click)="toggleSidebar()" [ngClass]="{'hidden': menuOpened}" class="site-btn f-btn">Filters</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</ng-sidebar-container>
+

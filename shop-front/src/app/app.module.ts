@@ -13,14 +13,15 @@ import {ActivateAccountComponent} from './auth/activate-account/activate-account
 import {SendEmailResetPasswordComponent} from './auth/password-reset/send-email/send-email-reset-password.component';
 import {ResetPasswordComponent} from './auth/password-reset/reset-password/reset-password.component';
 import {RequestInterceptor} from "./auth/Interceptor/request-interceptor.service";
-import {ProductComponent} from './buisness/product/product.component';
-import {HeaderComponent} from './buisness/header/header.component';
-import {MainComponent} from './buisness/main/main.component';
-import {CartComponent} from './buisness/cart/cart.component';
+import {ProductComponent} from './buisness/view/product/product.component';
+import {HeaderComponent} from './buisness/view/header/header.component';
+import {MainComponent} from './buisness/view/main/main.component';
+import {CartComponent} from './buisness/view/cart/cart.component';
 import {FilterComponent} from './buisness/filter/filter.component';
 import {environment} from "../environments/environment";
 import {PRODUCT_URL_TOKEN} from "./buisness/data/dao/impl/ProductService";
 import {CATEGORY_URL_TOKEN} from "./buisness/data/dao/impl/CategoryService";
+import {SidebarModule} from "ng-sidebar";
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {CATEGORY_URL_TOKEN} from "./buisness/data/dao/impl/CategoryService";
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SidebarModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true},
