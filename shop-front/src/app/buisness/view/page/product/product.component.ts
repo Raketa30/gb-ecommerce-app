@@ -1,5 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Product} from "../../../model/product";
+import {PageEvent} from '@angular/material/paginator';
+import {ProductSearchValues} from "../../../data/dao/search/SearchObjects";
+
 
 @Component({
   selector: 'app-product',
@@ -13,7 +16,23 @@ export class ProductComponent implements OnInit {
     this.products = products;
   }
 
+  @Output()
+  pagingEvent = new EventEmitter<PageEvent>(); // переход по страницам данных
+  productSearch: ProductSearchValues;
+  totalProductsFounded: number;
+
   products: Product[];
+
+  @Input('totalProductsFounded')
+  set setTotalProductsFounded(totalProduct: number) {
+    this.totalProductsFounded = totalProduct;
+  }
+
+  @Input('productSearchValues')
+  set setProductSearchValues(productSearchValues: ProductSearchValues) {
+    this.productSearch = productSearchValues;
+    this.initSearchValues();
+  }
 
   constructor() {
   }
@@ -21,5 +40,15 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  pageChanged(pageEvent: PageEvent) {
+    this.pagingEvent.emit(pageEvent);
+  }
 
+  private initSearchValues() {
+    if (!this.productSearch) {
+      return;
+    }
+
+
+  }
 }

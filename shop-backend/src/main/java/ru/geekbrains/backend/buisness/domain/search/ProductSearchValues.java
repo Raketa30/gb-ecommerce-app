@@ -16,7 +16,7 @@ public class ProductSearchValues {
     private String sortField = "id";
 
     private int pageNum = 1;
-    private Integer pageSize = 10;
+    private Integer pageSize = 9;
     private List<Integer> pageNumbers = Collections.singletonList(1);
 
     //filters

@@ -18,8 +18,8 @@ export class ProductService extends CommonService<Product> implements ProductDAO
     super(baseUrl, http);
   }
 
-  findAllPaginated(productSearchValues: ProductSearchValues): Observable<Product[]> {
-    return this.http.post<Product[]>(this.baseUrl + '/list', productSearchValues);
+  findAllPaginated(productSearchValues: ProductSearchValues): Observable<any> {
+    return this.http.post<any>(this.baseUrl + '/list', productSearchValues);
   }
 
 }

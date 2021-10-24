@@ -5,6 +5,7 @@ import {ProductService} from "../../../data/dao/impl/ProductService";
 import {CategoryService} from "../../../data/dao/impl/CategoryService";
 import {AuthService} from "../../../../auth/service/auth.service";
 import {ProductSearchValues} from "../../../data/dao/search/SearchObjects";
+import {PageEvent} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-main',
@@ -19,16 +20,22 @@ export class MainComponent implements OnInit {
   menuMode: string;
   menuPosition: string;
 
+  readonly defaultPageSize = 6;
+  readonly defaultPageNumber = 0;
+
   products: Product[];
   categories: Category[];
+
   productSearch: ProductSearchValues;
+  totalProductsFound: number;
 
   constructor(
     private productService: ProductService,
     private categoryService: CategoryService,
     private authService: AuthService) {
     this.productSearch = new ProductSearchValues();
-    this.productService.findAllPaginated(this.productSearch).subscribe(res => this.products = res);
+
+    this.searchProducts(this.productSearch);
 
   }
 
@@ -41,12 +48,32 @@ export class MainComponent implements OnInit {
 
     // настройки бокового меню
     this.menuOpened = false;
-    this.menuMode = 'push';
+    this.menuMode = 'over';
     this.showBackdrop = false;
   }
 
 
   toggleSidebar() {
     this.menuOpened = !this.menuOpened;
+  }
+
+  paging(event: PageEvent) {
+    if (this.productSearch.pageSize !== event.pageSize) {
+      this.productSearch.pageNum = 1;
+    } else {
+      this.productSearch.pageNum = event.pageIndex;
+    }
+
+    this.productSearch.pageSize = event.pageSize;
+
+    this.searchProducts(this.productSearch);
+  }
+
+  private searchProducts(productSearch: ProductSearchValues) {
+    this.productSearch = productSearch;
+    this.productService.findAllPaginated(this.productSearch).subscribe(result => {
+      this.products = result['content'];
+      this.totalProductsFound = result.totalElements;
+    })
   }
 }

@@ -9,7 +9,8 @@ import {AuthService, User} from "../../../../auth/service/auth.service";
 export class HeaderComponent implements OnInit {
   user: User = null;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+  ) {
     this.authService.currentUser.subscribe(
       result => {
         this.user = result;
@@ -19,5 +20,4 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

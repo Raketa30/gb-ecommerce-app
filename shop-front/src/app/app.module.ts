@@ -26,7 +26,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {AddProductComponent} from './buisness/view/dialog/add-product/add-product.component';
 import {AddCategoryComponent} from './buisness/view/dialog/add-category/add-category.component';
-import {MatDialogRef} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import {MatDialogRef} from "@angular/material/dialog";
     SidebarModule,
     MatIconModule,
     MatButtonModule,
+    MatPaginatorModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true},
@@ -67,7 +69,7 @@ import {MatDialogRef} from "@angular/material/dialog";
       provide: CATEGORY_URL_TOKEN,
       useValue: environment.backendURL + environment.apiVersion + 'category'
     },
-    // {provide: MAIN_DIALOG_DATA, useValue: {}},
+    {provide: MAT_DIALOG_DATA, useValue: {}},
     {provide: MatDialogRef, useValue: {}}
   ],
   entryComponents: [
