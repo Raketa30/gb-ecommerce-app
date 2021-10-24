@@ -28,6 +28,8 @@ import {AddProductComponent} from './buisness/view/dialog/add-product/add-produc
 import {AddCategoryComponent} from './buisness/view/dialog/add-category/add-category.component';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatInputModule} from "@angular/material/input";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     SidebarModule,
     MatIconModule,
     MatButtonModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatInputModule,
+    MatCheckboxModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true},

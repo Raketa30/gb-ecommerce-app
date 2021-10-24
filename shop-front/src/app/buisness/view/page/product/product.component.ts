@@ -16,13 +16,6 @@ export class ProductComponent implements OnInit {
     this.products = products;
   }
 
-  @Output()
-  pagingEvent = new EventEmitter<PageEvent>(); // переход по страницам данных
-  productSearch: ProductSearchValues;
-  totalProductsFounded: number;
-
-  products: Product[];
-
   @Input('totalProductsFounded')
   set setTotalProductsFounded(totalProduct: number) {
     this.totalProductsFounded = totalProduct;
@@ -33,6 +26,14 @@ export class ProductComponent implements OnInit {
     this.productSearch = productSearchValues;
     this.initSearchValues();
   }
+
+  @Output()
+  pagingEvent = new EventEmitter<PageEvent>();
+
+  productSearch: ProductSearchValues;
+  totalProductsFounded: number;
+
+  products: Product[];
 
   constructor() {
   }

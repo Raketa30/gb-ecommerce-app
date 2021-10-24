@@ -76,11 +76,12 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     private CategoryDto getDto(CategoryEntity entity) {
+        String parentAlias = entity.getParentCategory() != null ? entity.getParentCategory().getAlias() : "empty";
         return CategoryDto.builder()
                 .id(entity.getId())
                 .title(entity.getTitle())
                 .alias(entity.getAlias())
-                .parentCategoryAlias(entity.getParentCategory().getAlias())
+                .parentCategoryAlias(parentAlias)
                 .build();
     }
 

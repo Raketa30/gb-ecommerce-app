@@ -36,7 +36,6 @@ export class MainComponent implements OnInit {
     this.productSearch = new ProductSearchValues();
 
     this.searchProducts(this.productSearch);
-
   }
 
   ngOnInit(): void {
@@ -48,7 +47,7 @@ export class MainComponent implements OnInit {
 
     // настройки бокового меню
     this.menuOpened = false;
-    this.menuMode = 'over';
+    this.menuMode = 'push';
     this.showBackdrop = false;
   }
 
@@ -74,6 +73,14 @@ export class MainComponent implements OnInit {
     this.productService.findAllPaginated(this.productSearch).subscribe(result => {
       this.products = result['content'];
       this.totalProductsFound = result.totalElements;
+      this.searchCategories()
+    })
+  }
+
+  private searchCategories() {
+    this.categoryService.getCategoryList().subscribe(result => {
+      console.log(result)
+      this.categories = result;
     })
   }
 }

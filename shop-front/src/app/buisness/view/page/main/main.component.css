@@ -4,18 +4,20 @@
 ng-sidebar-container {
   padding: 0;
   margin: 0;
-  height: 100vh;
+  height: 92vh;
 }
 
 ng-sidebar {
+
   background-color: #949494;
 }
 
 .blog-section {
-  background: #f2f4f9;
+  background-color: #949494;
 }
 
 .sidebar {
+  min-width: 310px;
 }
 
 .blog-section .bgs-title {

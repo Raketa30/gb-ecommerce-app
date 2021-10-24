@@ -33,7 +33,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
     private JwtUtils jwtUtils;
     private CookieUtils cookieUtils;
 
-    private List<String> permitURL = Arrays.asList(
+    private final List<String> permitURL = Arrays.asList(
             AUTH + "/register",
             AUTH + "/login",
             AUTH + "/activate-account",

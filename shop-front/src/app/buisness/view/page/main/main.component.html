@@ -1,3 +1,4 @@
+<app-header></app-header>
 <ng-sidebar-container> <!--контейнер для внедрения слайд-меню-->
 
   <!--  слайд-меню-->
@@ -5,22 +6,26 @@
 
     [animate]="true"
     [autoFocus]="false"
-    [closeOnClickBackdrop]="true"
-    [closeOnClickOutside]="true"
+    [closeOnClickBackdrop]="false"
+    [closeOnClickOutside]="false"
     [mode]="menuMode"
     [opened]="menuOpened"
     [position]="menuPosition"
     [showBackdrop]="showBackdrop"
   >
-    <div class="sidebar">
-      <app-product-filter>
+    <div class="sidebar mt-3 px-2">
+      <app-product-filter
+        [categories]="categories"
+        [productSearchValues]="productSearch"
+      >
 
       </app-product-filter>
     </div>
 
   </ng-sidebar>
+  2
   <div ng-sidebar-content>
-    <app-header></app-header>
+
     <section class="main-section spad">
       <div class="container">
         <div class="row d-flex flex-wrap justify-content-between">
@@ -35,7 +40,8 @@
           </div>
           <div class="col-1 mt-3">
             <button (click)="toggleSidebar()" mat-icon-button>
-              <mat-icon>keyboard_arrow_left</mat-icon>
+              <mat-icon *ngIf="!menuOpened">keyboard_arrow_left</mat-icon>
+              <mat-icon *ngIf="menuOpened">keyboard_arrow_right</mat-icon>
             </button>
           </div>
         </div>
