@@ -22,4 +22,8 @@ export class ProductService extends CommonService<Product> implements ProductDAO
     return this.http.post<any>(this.baseUrl + '/list', productSearchValues);
   }
 
+  findByCategoryId(id: number): Observable<Product[]> {
+    return this.http.post<any>(this.baseUrl + '/category-id', id);
+  }
+
 }

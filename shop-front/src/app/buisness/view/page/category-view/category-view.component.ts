@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Category} from "../../../model/category";
+import {CategoryService} from "../../../data/dao/impl/CategoryService";
 
 @Component({
   selector: 'app-category-view',
@@ -7,10 +9,18 @@ import {Component, OnInit} from '@angular/core';
 })
 export class CategoryViewComponent implements OnInit {
 
-  constructor() {
+  categories: Category[];
+
+  constructor(private categoryService: CategoryService) {
+
   }
 
   ngOnInit(): void {
+    this.categoryService.getCategoryList().subscribe(
+      result => {
+        this.categories = result;
+      }
+    )
   }
 
 }

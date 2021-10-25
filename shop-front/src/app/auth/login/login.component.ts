@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService, User} from "../service/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
 
   }
@@ -60,6 +62,7 @@ export class LoginComponent implements OnInit {
 
         this.authService.isLoggedIn = true;
         this.authService.currentUser.next(this.user);
+        this.router.navigate(['/product']);
       },
 
       err => {

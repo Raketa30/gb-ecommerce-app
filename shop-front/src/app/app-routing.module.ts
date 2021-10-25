@@ -10,8 +10,8 @@ import {ProductViewComponent} from "./buisness/view/page/product-view/product-vi
 import {CartComponent} from "./buisness/view/page/cart/cart.component";
 import {WelcomeViewComponent} from "./buisness/view/page/welcome-view/welcome-view.component";
 import {CategoryViewComponent} from "./buisness/view/page/category-view/category-view.component";
-import {ProductItemComponent} from "./buisness/view/components/product-item/product-item.component";
-import {CategoryItemComponent} from "./buisness/view/components/category-item/category-item.component";
+import {ItemProductComponent} from "./buisness/view/components/item-product/item-product.component";
+import {ItemCategoryComponent} from "./buisness/view/components/item-category/item-category.component";
 
 // модуль для настройки роутингов
 
@@ -19,10 +19,10 @@ import {CategoryItemComponent} from "./buisness/view/components/category-item/ca
 const routes: Routes = [
   // no auth
   {path: '', component: WelcomeViewComponent},
-  {path: 'products', component: ProductViewComponent},
+  {path: 'product', component: ProductViewComponent},
   {path: 'category', component: CategoryViewComponent},
-  {path: 'product-item/:id', component: ProductItemComponent},
-  {path: 'category-item/:id', component: CategoryItemComponent},
+  {path: 'item-product/:id', component: ItemProductComponent},
+  {path: 'item-category/:id', component: ItemCategoryComponent},
   {path: 'cart', component: CartComponent},
   {path: 'login', component: LoginComponent},
   {path: 'logout', redirectTo: '', pathMatch: 'full'},

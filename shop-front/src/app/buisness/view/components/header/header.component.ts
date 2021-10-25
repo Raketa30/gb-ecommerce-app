@@ -24,18 +24,18 @@ export class HeaderComponent implements OnInit {
       res => {
         this.count = res;
       }
-    )
+    );
   }
 
   ngOnInit(): void {
   }
 
   isAdmin() {
-    for (let role of this.user.roles) {
-      if (role.name == 'ROLE_ADMIN') {
-        return this.isLogged()
-      }
-    }
+    // for (let role of this.user.roles) {
+    //   if (role.name == 'ROLE_ADMIN') {
+    //     return this.isLogged()
+    //   }
+    // }
     return false;
   }
 
@@ -44,11 +44,17 @@ export class HeaderComponent implements OnInit {
   }
 
   isManager() {
-    for (let role of this.user.roles) {
-      if (role.name == 'ROLE_MANAGER') {
-        return this.isLogged()
-      }
-    }
+    // for (let role of this.user.roles) {
+    //   if (role.name == 'ROLE_MANAGER') {
+    //     return this.isLogged()
+    //   }
+    // }
     return false;
+  }
+
+  logout() {
+    this.authService.currentUser.next(null);
+    this.user = null;
+    this.ngOnInit();
   }
 }

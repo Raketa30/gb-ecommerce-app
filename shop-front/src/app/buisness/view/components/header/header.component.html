@@ -3,7 +3,7 @@
     <div class="container">
       <div class="navbar-brand">
         <img alt="geekbrains" height="30" routerLink="/" src="../../../../../assets/img/logo.png" width="30">
-        GB-Shop
+        Geekbrains
       </div>
       <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"
               class="navbar-toggler"
@@ -12,21 +12,21 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
-        <ul class="main-menu navbar-nav  mr-auto mt-2 mt-lg-0">
+        <ul class="main-menu navbar-nav mt-2 mt-lg-0">
           <li class="nav-item"><a routerLink="/">Home</a></li>
-          <li *ngIf="!(isAdmin() || isManager())" class="nav-item"><a routerLink="/products">Products</a></li>
-          <li *ngIf="!(isAdmin() || isManager())" class="nav-item"><a routerLink="/categories">Categories</a></li>
+          <li *ngIf="!(isAdmin() || isManager())" class="nav-item"><a routerLink="/product">Products</a></li>
+          <li *ngIf="!(isAdmin() || isManager())" class="nav-item"><a routerLink="/category">Categories</a></li>
           <li *ngIf="isAdmin()" class="nav-item"><a routerLink="/admin">Admin panel</a></li>
-          <li *ngIf="isAdmin() || isManager() class=" nav-item
-          "><a routerLink="/manager">Manager panel</a></li>
+          <li *ngIf="isAdmin() || isManager()" class="nav-item"><a routerLink="/manager">Manager panel</a></li>
         </ul>
         <div class="header-right">
           <a *ngIf="!isLogged()" class="login" routerLink="/login">Login</a>
-          <a *ngIf="isLogged()" class="username" routerLink="/user-profile">{{user.email}}</a>
+          <a *ngIf="isLogged()" class="login" routerLink="/user-profile">{{user.email}}</a>
           <a *ngIf="!(isAdmin() || isManager())" class="card-bag ml-2" routerLink="/cart">
             <img alt="" src="../../../../../assets/img/icons/bag.png">
             <span>{{count}}</span>
           </a>
+          <a (click)="logout()" *ngIf="isLogged()" class="login">LOGOUT</a>
         </div>
       </div>
     </div>

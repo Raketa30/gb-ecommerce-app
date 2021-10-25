@@ -13,7 +13,7 @@ import {ActivateAccountComponent} from './auth/activate-account/activate-account
 import {SendEmailResetPasswordComponent} from './auth/password-reset/send-email/send-email-reset-password.component';
 import {ResetPasswordComponent} from './auth/password-reset/reset-password/reset-password.component';
 import {RequestInterceptor} from "./auth/Interceptor/request-interceptor.service";
-import {ProductComponent} from './buisness/view/components/product/product.component';
+import {ProductListComponent} from './buisness/view/components/list-product/product-list.component';
 import {HeaderComponent} from './buisness/view/components/header/header.component';
 import {ProductViewComponent} from './buisness/view/page/product-view/product-view.component';
 import {CartComponent} from './buisness/view/page/cart/cart.component';
@@ -33,9 +33,10 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatDividerModule} from "@angular/material/divider";
 import {WelcomeViewComponent} from './buisness/view/page/welcome-view/welcome-view.component';
 import {CategoryViewComponent} from './buisness/view/page/category-view/category-view.component';
-import {ProductItemComponent} from './buisness/view/components/product-item/product-item.component';
-import {CategoryItemComponent} from './buisness/view/components/category-item/category-item.component';
+import {CategoryListComponent} from './buisness/view/components/list-category/category-list.component';
 import {UserProfileViewComponent} from './buisness/view/page/user-profile-view/user-profile-view.component';
+import {ItemProductComponent} from './buisness/view/components/item-product/item-product.component';
+import {ItemCategoryComponent} from './buisness/view/components/item-category/item-category.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import {UserProfileViewComponent} from './buisness/view/page/user-profile-view/u
     ActivateAccountComponent,
     SendEmailResetPasswordComponent,
     ResetPasswordComponent,
-    ProductComponent,
+    ProductListComponent,
     HeaderComponent,
     ProductViewComponent,
     CartComponent,
@@ -55,9 +56,10 @@ import {UserProfileViewComponent} from './buisness/view/page/user-profile-view/u
     AddCategoryComponent,
     WelcomeViewComponent,
     CategoryViewComponent,
-    ProductItemComponent,
-    CategoryItemComponent,
-    UserProfileViewComponent
+    CategoryListComponent,
+    UserProfileViewComponent,
+    ItemProductComponent,
+    ItemCategoryComponent
   ],
   imports: [
     BrowserModule,

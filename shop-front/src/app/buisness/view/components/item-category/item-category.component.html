@@ -1,19 +1,5 @@
 <div class="mt-4 row d-flex-wrap justify-content-around">
   <div class="col-12">
-    <div class="row">
-      <div class="col-10 align-self-baseline text-center">
-
-        <mat-paginator (page)="pageChanged($event)"
-                       [length]=totalProductsFounded
-                       [pageIndex]="productSearch.pageNum"
-                       [pageSizeOptions]="[6, 9, 18, 27]"
-                       [pageSize]=productSearch.pageSize
-                       aria-label="Select page"
-                       showFirstLastButtons
-        >
-        </mat-paginator>
-      </div>
-    </div>
     <div *ngIf="!products || products.length === 0" class="row">
       <div class="col-auto mx-auto text-center align-self-baseline">
         <div><p class="not-found">Not found products</p></div>
@@ -31,7 +17,7 @@
               <div class="product-info">
                 <h6>{{product.title}}</h6>
                 <p>{{product.cost}}</p>
-                <a class="site-btn btn-line" href="#">ADD TO CART</a>
+                <a (click)="addToCart(product)" class="site-btn btn-line" href="#">ADD TO CART</a>
               </div>
             </div>
           </div>
