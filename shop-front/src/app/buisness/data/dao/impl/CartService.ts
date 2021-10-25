@@ -37,5 +37,12 @@ export class CartService {
     this.cartItemsCount.next(count);
   }
 
+  getProductMap(): Map<Product, number> {
+    return this.productMap;
+  }
 
+
+  clearCart() {
+    this.productMap.clear();
+  }
 }
