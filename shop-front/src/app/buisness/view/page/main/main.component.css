@@ -17,7 +17,7 @@ ng-sidebar {
 }
 
 .sidebar {
-  min-width: 310px;
+  max-width: 310px;
 }
 
 .blog-section .bgs-title {

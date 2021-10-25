@@ -15,6 +15,7 @@
   >
     <div class="sidebar mt-3 px-2">
       <app-product-filter
+        (filterEvent)="filterSearch($event)"
         [categories]="categories"
         [productSearchValues]="productSearch"
       >

@@ -1,7 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Category} from "../../../../model/category";
 import {ProductSearchValues} from "../../../../data/dao/search/SearchObjects";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-product-filter',
@@ -10,13 +10,18 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 })
 export class ProductFilterComponent implements OnInit {
 
-  productTitle: string;
-  categories: Category[];
-  filterForm: FormGroup;
-  private productSearch: ProductSearchValues;
 
-  constructor(private formBuilder: FormBuilder) {
-  }
+  @Output()
+  filterEvent = new EventEmitter<ProductSearchValues>()
+  maxPrice: number;
+  minPrice: number;
+
+  productTitle: string;
+  form: FormGroup;
+  productSearch: ProductSearchValues;
+
+  categories: Category[];
+  firstSubmitted = false;
 
   @Input('categories')
   set setCategories(categories: Category[]) {
@@ -28,7 +33,70 @@ export class ProductFilterComponent implements OnInit {
     this.productSearch = productSearchValues;
   }
 
-  ngOnInit(): void {
+
+  constructor(private formBuilder: FormBuilder) {
   }
 
+  get minPriceField(): AbstractControl {
+    return this.form.get('minPrice');
+  }
+
+  get maxPriceField(): AbstractControl {
+    return this.form.get('maxPrice');
+  }
+
+  get titleField(): AbstractControl {
+    return this.form.get('productTitle');
+  }
+
+  get categoryField(): AbstractControl {
+    return this.form.get('minPrice');
+  }
+
+  ngOnInit(): void {
+    this.form = this.formBuilder.group({
+        minPrice: [''],
+        maxPrice: [''],
+        productTitle: ['']
+      }
+    );
+  }
+
+  submitForm() {
+    this.firstSubmitted = true;
+
+    if (this.form.invalid) {
+      return;
+    }
+    if (this.checkFilters()) {
+      this.filterEvent.emit(this.productSearch);
+    }
+  }
+
+  resetFormValues() {
+    this.productSearch.isFiltered = false;
+    this.productSearch.minPrice = 0;
+    this.productSearch.maxPrice = 99999999999;
+    this.productSearch.title = '';
+
+    this.filterEvent.emit(this.productSearch);
+  }
+
+  checkFilters(): boolean {
+    var changed = false;
+    if (this.productSearch.minPrice !== this.minPriceField.value) {
+      this.productSearch.minPrice = this.minPriceField.value;
+      changed = true;
+    }
+    if (this.productSearch.maxPrice !== this.maxPriceField.value) {
+      this.productSearch.maxPrice = this.maxPriceField.value;
+      changed = true;
+    }
+    if (this.productSearch.title !== this.titleField.value) {
+      this.productSearch.title = this.titleField.value;
+      changed = true;
+    }
+    this.productSearch.isFiltered = changed;
+    return changed;
+  }
 }

@@ -20,7 +20,9 @@ public class ProductSearchValues {
     private List<Integer> pageNumbers = Collections.singletonList(1);
 
     //filters
+    private Boolean isFiltered = false;
     private List<Long> categoryIds;
-    private Double minCost;
-    private Double maxCost;
+    private Double minCost = 0.0;
+    private Double maxCost = 99999999999.0;
+    private String title;
 }

@@ -86,8 +86,17 @@ public class ProductServiceImpl implements ProductService {
                 searchValues.getPageSize(),
                 Sort.by(searchValues.getSortDirection(), searchValues.getSortField())
         );
-
-        Page<ProductEntity> productEntityPage = productRepository.findAll(pageRequest);
+        Page<ProductEntity> productEntityPage;
+        if (searchValues.getIsFiltered()) {
+            productEntityPage = productRepository
+                    .findProductEntitiesByTitleContainsAndCostBetween(
+                            pageRequest,
+                            searchValues.getTitle(),
+                            searchValues.getMinCost(),
+                            searchValues.getMaxCost());
+        } else {
+            productEntityPage = productRepository.findAll(pageRequest);
+        }
         return productEntityPage.map(this::getDto);
     }
 

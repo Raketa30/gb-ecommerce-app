@@ -83,4 +83,9 @@ export class MainComponent implements OnInit {
       this.categories = result;
     })
   }
+
+  filterSearch(filterSearch: ProductSearchValues) {
+    this.productSearch = filterSearch;
+    this.searchProducts(this.productSearch);
+  }
 }
