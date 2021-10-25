@@ -13,15 +13,15 @@ import {ActivateAccountComponent} from './auth/activate-account/activate-account
 import {SendEmailResetPasswordComponent} from './auth/password-reset/send-email/send-email-reset-password.component';
 import {ResetPasswordComponent} from './auth/password-reset/reset-password/reset-password.component';
 import {RequestInterceptor} from "./auth/Interceptor/request-interceptor.service";
-import {ProductComponent} from './buisness/view/page/product/product.component';
-import {HeaderComponent} from './buisness/view/page/header/header.component';
-import {MainComponent} from './buisness/view/page/main/main.component';
+import {ProductComponent} from './buisness/view/components/product/product.component';
+import {HeaderComponent} from './buisness/view/components/header/header.component';
+import {ProductViewComponent} from './buisness/view/page/product-view/product-view.component';
 import {CartComponent} from './buisness/view/page/cart/cart.component';
 import {environment} from "../environments/environment";
 import {PRODUCT_URL_TOKEN} from "./buisness/data/dao/impl/ProductService";
 import {CATEGORY_URL_TOKEN} from "./buisness/data/dao/impl/CategoryService";
 import {SidebarModule} from "ng-sidebar";
-import {ProductFilterComponent} from './buisness/view/page/filter/product-filter/product-filter.component';
+import {ProductFilterComponent} from './buisness/view/components/filter/product-filter/product-filter.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {AddProductComponent} from './buisness/view/dialog/add-product/add-product.component';
@@ -31,6 +31,11 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatInputModule} from "@angular/material/input";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatDividerModule} from "@angular/material/divider";
+import {WelcomeViewComponent} from './buisness/view/page/welcome-view/welcome-view.component';
+import {CategoryViewComponent} from './buisness/view/page/category-view/category-view.component';
+import {ProductItemComponent} from './buisness/view/components/product-item/product-item.component';
+import {CategoryItemComponent} from './buisness/view/components/category-item/category-item.component';
+import {UserProfileViewComponent} from './buisness/view/page/user-profile-view/user-profile-view.component';
 
 @NgModule({
   declarations: [
@@ -43,11 +48,16 @@ import {MatDividerModule} from "@angular/material/divider";
     ResetPasswordComponent,
     ProductComponent,
     HeaderComponent,
-    MainComponent,
+    ProductViewComponent,
     CartComponent,
     ProductFilterComponent,
     AddProductComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    WelcomeViewComponent,
+    CategoryViewComponent,
+    ProductItemComponent,
+    CategoryItemComponent,
+    UserProfileViewComponent
   ],
   imports: [
     BrowserModule,

@@ -47,5 +47,9 @@ export class User {
 }
 
 export class Role {
-  name: string;
+  private _name: string;
+
+  get name(): string {
+    return this._name;
+  }
 }
