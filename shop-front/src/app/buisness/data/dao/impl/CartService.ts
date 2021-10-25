@@ -45,4 +45,8 @@ export class CartService {
   clearCart() {
     this.productMap.clear();
   }
+
+  resetCartItemCount() {
+    this.cartItemsCount.next(0);
+  }
 }

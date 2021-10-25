@@ -35,15 +35,20 @@ values ('ROLE_USER'),
        ('ROLE_ADMIN');
 
 insert into user_data (username, password, email)
-values ('admin', 'admin', 'user@gmail.com');
+values ('admin', 'admin', 'admin@gmail.com'),
+       ('manager', 'manager', 'manager@gmail.com'),
+       ('user', 'user1', 'user@gmail.com');
 
 insert into activity_data(id, activated, uuid, user_id)
-values (1, 1, 'schabswdsdbhjksdcbsdcjkdcs', 1);
+values (1, 1, 'schabswdsdbhjksdcbsdcjkd', 1),
+       (2, 1, 'sdfsdfdfssdfdfsdfsdfssdf', 2),
+       (3, 1, 'sdfsdfdfssdfdfasdasdsdfs', 3);
 
 insert into user_role (user_id, role_id)
-values (1, 1),
+values (1, 3),
        (1, 2),
-       (1, 3);
+       (2, 2),
+       (3, 1);
 
 alter
 sequence activity_data_id_seq restart with 100;
