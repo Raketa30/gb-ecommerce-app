@@ -9,12 +9,12 @@ import {AbstractControl, FormBuilder, FormGroup} from "@angular/forms";
   styleUrls: ['./product-filter.component.css']
 })
 export class ProductFilterComponent implements OnInit {
-
-
   @Output()
   filterEvent = new EventEmitter<ProductSearchValues>()
+
   maxPrice: number;
   minPrice: number;
+  categoryIds: number[] = [];
 
   productTitle: string;
   form: FormGroup;
@@ -96,7 +96,22 @@ export class ProductFilterComponent implements OnInit {
       this.productSearch.title = this.titleField.value;
       changed = true;
     }
+
+    if (this.productSearch.categoryIds !== this.categoryIds) {
+      this.productSearch.categoryIds = this.categoryIds;
+      changed = true;
+    }
+
     this.productSearch.isFiltered = changed;
     return changed;
+  }
+
+  onChange(id: number, checked: boolean) {
+    if (checked) {
+      this.categoryIds.push(id);
+    } else {
+      let index = this.categoryIds.indexOf(id);
+      this.categoryIds.splice(index, 1);
+    }
   }
 }

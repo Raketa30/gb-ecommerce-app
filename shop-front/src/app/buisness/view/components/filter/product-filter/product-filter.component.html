@@ -15,7 +15,7 @@
         <div class="form-group mt-2">
           <h5 class="text-h3">Categories</h5>
           <div *ngFor="let cat of categories, let index = index" class="mt-1">
-            <mat-checkbox [formControlName]="index"
+            <mat-checkbox (change)="onChange(cat.id, $event.target.checked)" formControlName="index"
                           class="example-margin">{{cat.title}}</mat-checkbox>
           </div>
         </div>

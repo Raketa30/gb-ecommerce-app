@@ -10,7 +10,7 @@ import {CartService} from "../../../data/dao/impl/CartService";
   styleUrls: ['./item-category.component.css']
 })
 export class ItemCategoryComponent implements OnInit {
-  id: number;
+  id: string;
 
   products: Product[];
 

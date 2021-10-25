@@ -32,6 +32,11 @@ public class ProductController {
         return new ResponseEntity<>(page, HttpStatus.OK);
     }
 
+    @PostMapping("/category-id")
+    public ResponseEntity<List<ProductDto>> getCategoryProductList(@RequestBody String id) {
+        return ResponseEntity.ok(productService.findProductsByCategoryId(Long.valueOf(id)));
+    }
+
     @GetMapping("/all")
     public ResponseEntity<List<ProductDto>> findAll() {
         return ResponseEntity.ok(productService.findAll());

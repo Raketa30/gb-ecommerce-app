@@ -44,6 +44,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
             PRODUCT + "/list",
             CATEGORY + "/all",
             CATEGORY + "/list",
+            CATEGORY + "/category-id",
             "/v2/api-docs",
             "/configuration/ui",
             "/swagger-resources/**",
