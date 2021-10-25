@@ -10,51 +10,60 @@ import {CartService} from "../../../data/dao/impl/CartService";
 export class HeaderComponent implements OnInit {
   user: User = null;
   count: number = 0;
+  isLoggedOn = false;
+  isAdmin = false;
+  isUser = true;
+  isManager = false;
 
   constructor(private authService: AuthService,
-              private cartService: CartService
+              private cartService: CartService,
   ) {
-    this.authService.currentUser.subscribe(
-      result => {
-        this.user = result;
-      }
-    );
-
     this.cartService.cartItemsCount.subscribe(
       res => {
         this.count = res;
       }
     );
+    this.authService.currentUser.subscribe(
+      result => {
+        this.user = result;
+        if (result !== null) {
+          this.isLoggedOn = true;
+          this.takeRoles();
+        }
+      }
+    )
   }
 
   ngOnInit(): void {
-  }
 
-  isAdmin() {
-    // for (let role of this.user.roles) {
-    //   if (role.name == 'ROLE_ADMIN') {
-    //     return this.isLogged()
-    //   }
-    // }
-    return false;
-  }
-
-  isLogged() {
-    return this.user !== null;
-  }
-
-  isManager() {
-    // for (let role of this.user.roles) {
-    //   if (role.name == 'ROLE_MANAGER') {
-    //     return this.isLogged()
-    //   }
-    // }
-    return false;
   }
 
   logout() {
-    this.authService.currentUser.next(null);
     this.user = null;
-    this.ngOnInit();
+    this.isLoggedOn = false;
+    this.isAdmin = false;
+    this.isUser = true;
+    this.isManager = false;
+    this.authService.logout().subscribe(
+      (result) => {
+        if (result) {
+          this.authService.currentUser.next(null);
+        }
+      }
+    )
+
+  }
+
+  private takeRoles(): void {
+    for (let role of this.user.roles) {
+      if (role.name == 'ROLE_ADMIN') {
+        this.isUser = false;
+        this.isAdmin = true;
+      }
+      if (role.name == 'ROLE_MANAGER') {
+        this.isUser = false;
+        this.isManager = true;
+      }
+    }
   }
 }

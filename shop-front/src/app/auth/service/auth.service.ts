@@ -13,7 +13,8 @@ export class AuthService {
 
   backendAuthURI = environment.backendURL + '/api/v1/auth';
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient
+  ) {
   }
 
   public login(request: User): Observable<User> {
@@ -36,6 +37,10 @@ export class AuthService {
     const tokenParam = new HttpParams().set('token', token);
     return this.httpClient.post<boolean>(this.backendAuthURI + '/update-password', request, {params: tokenParam});
   }
+
+  public logout(): Observable<boolean> {
+    return this.httpClient.post<boolean>(this.backendAuthURI + '/logout', '');
+  }
 }
 
 export class User {
@@ -47,9 +52,6 @@ export class User {
 }
 
 export class Role {
-  private _name: string;
-
-  get name(): string {
-    return this._name;
-  }
+  id: number;
+  name: string;
 }

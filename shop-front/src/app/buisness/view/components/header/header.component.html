@@ -14,19 +14,19 @@
 
         <ul class="main-menu navbar-nav mt-2 mt-lg-0">
           <li class="nav-item"><a routerLink="/">Home</a></li>
-          <li *ngIf="!(isAdmin() || isManager())" class="nav-item"><a routerLink="/product">Products</a></li>
-          <li *ngIf="!(isAdmin() || isManager())" class="nav-item"><a routerLink="/category">Categories</a></li>
-          <li *ngIf="isAdmin()" class="nav-item"><a routerLink="/admin">Admin panel</a></li>
-          <li *ngIf="isAdmin() || isManager()" class="nav-item"><a routerLink="/manager">Manager panel</a></li>
+          <li *ngIf="isUser" class="nav-item"><a routerLink="/product">Products</a></li>
+          <li *ngIf="isUser" class="nav-item"><a routerLink="/category">Categories</a></li>
+          <li *ngIf="isAdmin" class="nav-item"><a routerLink="/admin">Admin panel</a></li>
+          <li *ngIf="isAdmin || isManager" class="nav-item"><a routerLink="/manager">Manager panel</a></li>
         </ul>
         <div class="header-right">
-          <a *ngIf="!isLogged()" class="login" routerLink="/login">Login</a>
-          <a *ngIf="isLogged()" class="login" routerLink="/user-profile">{{user.email}}</a>
-          <a *ngIf="!(isAdmin() || isManager())" class="card-bag ml-2" routerLink="/cart">
+          <a *ngIf="!isLoggedOn" class="login" routerLink="/login">Login</a>
+          <a *ngIf="isLoggedOn" class="login" routerLink="/user-profile">{{user.email}}</a>
+          <a *ngIf="isUser || !isLoggedOn" class="card-bag ml-2" routerLink="/cart">
             <img alt="" src="../../../../../assets/img/icons/bag.png">
             <span>{{count}}</span>
           </a>
-          <a (click)="logout()" *ngIf="isLogged()" class="login">LOGOUT</a>
+          <a (click)="logout()" *ngIf="isLoggedOn" class="login">LOGOUT</a>
         </div>
       </div>
     </div>

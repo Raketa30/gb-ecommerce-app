@@ -37,7 +37,7 @@ values ('ROLE_USER'),
 insert into user_data (username, password, email)
 values ('admin', 'admin', 'admin@gmail.com'),
        ('manager', 'manager', 'manager@gmail.com'),
-       ('user', 'user1', 'user@gmail.com');
+       ('user1', 'user1', 'user@gmail.com');
 
 insert into activity_data(id, activated, uuid, user_id)
 values (1, 1, 'schabswdsdbhjksdcbsdcjkd', 1),

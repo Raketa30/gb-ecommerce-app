@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router
+
   ) {
 
   }
@@ -59,10 +60,10 @@ export class LoginComponent implements OnInit {
         this.isLoading = false;
 
         this.user = result;
-
+        console.log(result);
         this.authService.isLoggedIn = true;
         this.authService.currentUser.next(this.user);
-        this.router.navigate(['/product']);
+        this.router.navigate(['/']);
       },
 
       err => {
