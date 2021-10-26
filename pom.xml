@@ -11,6 +11,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+    <modules>
+        <module>shop-backend</module>
+    </modules>
+
     <groupId>gb-ecommerce</groupId>
     <artifactId>gb-ecommerce-app</artifactId>
     <version>1.0-SNAPSHOT</version>
