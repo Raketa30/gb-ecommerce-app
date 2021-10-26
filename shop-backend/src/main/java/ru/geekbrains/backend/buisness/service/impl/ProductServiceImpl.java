@@ -20,6 +20,7 @@ import ru.geekbrains.backend.buisness.util.FileUtils;
 import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -69,8 +70,8 @@ public class ProductServiceImpl implements ProductService {
         product.setDescription(dto.getDescription());
         product.setCost(dto.getCost());
 
-        List<CategoryEntity> categoryList = categoryService.findAllByIdList(dto.getCategoryIdList());
-        product.setCategories(new HashSet<>(categoryList));
+        Set<CategoryEntity> categoryList = categoryService.findAllByIdList(dto.getCategoryIdList());
+        product.setCategories(categoryList);
     }
 
     @Override
@@ -86,9 +87,24 @@ public class ProductServiceImpl implements ProductService {
                 searchValues.getPageSize(),
                 Sort.by(searchValues.getSortDirection(), searchValues.getSortField())
         );
-
-        Page<ProductEntity> productEntityPage = productRepository.findAll(pageRequest);
+        Page<ProductEntity> productEntityPage;
+        if (searchValues.isFiltered()) {
+            productEntityPage = productRepository
+                    .findProductEntityByTitleContainsAndCostBetween(
+                            pageRequest,
+                            searchValues.getTitle(),
+                            searchValues.getMinCost(),
+                            searchValues.getMaxCost());
+        } else {
+            productEntityPage = productRepository.findAll(pageRequest);
+        }
         return productEntityPage.map(this::getDto);
+    }
+
+    @Override
+    public List<ProductDto> findProductsByCategoryId(Long id) {
+        return getProductDtoList(productRepository
+                .findProductEntitiesByCategoriesEquals(categoryService.findCategoryById(id)));
     }
 
     private List<ProductDto> getProductDtoList(List<ProductEntity> productEntities) {

@@ -11,6 +11,7 @@ import ru.geekbrains.backend.buisness.service.CategoryService;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -28,14 +29,13 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<CategoryEntity> findAllByIdList(List<Long> categoryIdList) {
+    public Set<CategoryEntity> findAllByIdList(List<Long> categoryIdList) {
         return categoryRepository.findAllByIdInAndParentCategoryIsNotNull(categoryIdList);
     }
 
     @Override
     public List<CategoryDto> findAll() {
-        List<CategoryEntity> categoryEntities = categoryRepository.findAll();
-
+        List<CategoryEntity> categoryEntities = categoryRepository.findCategoryEntitiesByParentCategoryIsNotNull();
         return getCategoryDtoList(categoryEntities);
     }
 
@@ -69,6 +69,11 @@ public class CategoryServiceImpl implements CategoryService {
         categoryRepository.deleteById(id);
     }
 
+    @Override
+    public CategoryEntity findCategoryById(Long id) {
+        return categoryRepository.findById(id).get();
+    }
+
     private List<CategoryDto> getCategoryDtoList(List<CategoryEntity> categoryEntities) {
         return categoryEntities.stream()
                 .map(this::getDto)
@@ -76,11 +81,12 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     private CategoryDto getDto(CategoryEntity entity) {
+        String parentAlias = entity.getParentCategory() != null ? entity.getParentCategory().getAlias() : "empty";
         return CategoryDto.builder()
                 .id(entity.getId())
                 .title(entity.getTitle())
                 .alias(entity.getAlias())
-                .parentCategoryAlias(entity.getParentCategory().getAlias())
+                .parentCategoryAlias(parentAlias)
                 .build();
     }
 

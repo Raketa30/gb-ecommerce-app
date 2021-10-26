@@ -27,7 +27,8 @@ public class CategoryController {
     @GetMapping("/list")
     public ResponseEntity<List<CategoryDto>> getCategoryListPage() {
         List<CategoryDto> categoryEntityList = categoryService.findAll();
-        return new ResponseEntity<>(categoryEntityList, HttpStatus.OK);
+        System.out.println(categoryEntityList);
+        return ResponseEntity.ok(categoryEntityList);
     }
 
     @PutMapping("/add")

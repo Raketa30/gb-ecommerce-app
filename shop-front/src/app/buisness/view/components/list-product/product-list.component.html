@@ -1,0 +1,42 @@
+<div class="mt-4 row d-flex-wrap justify-content-around">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-10 align-self-baseline text-center">
+
+        <mat-paginator (page)="pageChanged($event)"
+                       [length]=totalProductsFounded
+                       [pageIndex]="productSearch.pageNum"
+                       [pageSizeOptions]="[6, 9, 18, 27]"
+                       [pageSize]=productSearch.pageSize
+                       aria-label="Select page"
+                       showFirstLastButtons
+        >
+        </mat-paginator>
+      </div>
+    </div>
+    <div *ngIf="!products || products.length === 0" class="row">
+      <div class="col-auto mx-auto text-center align-self-baseline">
+        <div><p class="not-found">Not found products</p></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-11 col-md-10 col-sm-12 col-xs-12">
+        <div class="row d-flx-wrap justify-content-between">
+          <div *ngFor="let product of products, let index = index"
+               class="col-lg-4 col-md-4 col-sm-12 col-xs-12 best  mb-2">
+            <div class="product-item">
+              <figure>
+                <img alt="" src="{{product.imageLink}}">
+              </figure>
+              <div class="product-info">
+                <h6>{{product.title}}</h6>
+                <p>{{product.cost}}</p>
+                <a (click)="addToCart(product)" class="site-btn btn-line">ADD TO CART</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

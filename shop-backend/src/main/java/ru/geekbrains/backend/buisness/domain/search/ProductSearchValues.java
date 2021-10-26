@@ -3,9 +3,7 @@ package ru.geekbrains.backend.buisness.domain.search;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
-import ru.geekbrains.backend.buisness.domain.dto.ProductDto;
 
 import java.util.Collections;
 import java.util.List;
@@ -18,13 +16,13 @@ public class ProductSearchValues {
     private String sortField = "id";
 
     private int pageNum = 1;
-    private Integer pageSize = 10;
+    private Integer pageSize = 9;
     private List<Integer> pageNumbers = Collections.singletonList(1);
 
-    private Page<ProductDto> page;
-
     //filters
+    private boolean isFiltered = false;
     private List<Long> categoryIds;
-    private Double minCost;
-    private Double maxCost;
+    private Double minCost = 0.0;
+    private Double maxCost = 99999999999.0;
+    private String title;
 }

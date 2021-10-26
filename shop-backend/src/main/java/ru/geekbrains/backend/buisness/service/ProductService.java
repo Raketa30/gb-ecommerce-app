@@ -18,4 +18,6 @@ public interface ProductService {
     void deleteById(Long id);
 
     Page<ProductDto> findAllPaginated(ProductSearchValues searchValues);
+
+    List<ProductDto> findProductsByCategoryId(Long id);
 }

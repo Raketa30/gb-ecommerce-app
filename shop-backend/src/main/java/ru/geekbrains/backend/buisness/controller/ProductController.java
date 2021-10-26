@@ -13,8 +13,6 @@ import ru.geekbrains.backend.buisness.domain.search.ProductSearchValues;
 import ru.geekbrains.backend.buisness.service.ProductService;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 import static ru.geekbrains.backend.constants.NameConstant.PRODUCT;
 
@@ -28,20 +26,20 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping("/list")
-    public ResponseEntity<ProductSearchValues> getProductList(ProductSearchValues searchValues) {
+    @PostMapping("/list")
+    public ResponseEntity<Page<ProductDto>> getProductList(@RequestBody ProductSearchValues searchValues) {
         Page<ProductDto> page = productService.findAllPaginated(searchValues);
-        searchValues.setPage(page);
+        return new ResponseEntity<>(page, HttpStatus.OK);
+    }
 
-        int totalPages = page.getTotalPages();
+    @PostMapping("/category-id")
+    public ResponseEntity<List<ProductDto>> getCategoryProductList(@RequestBody String id) {
+        return ResponseEntity.ok(productService.findProductsByCategoryId(Long.valueOf(id)));
+    }
 
-        if (totalPages > 0) {
-            List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages)
-                    .boxed()
-                    .collect(Collectors.toList());
-            searchValues.setPageNumbers(pageNumbers);
-        }
-        return new ResponseEntity<>(searchValues, HttpStatus.OK);
+    @GetMapping("/all")
+    public ResponseEntity<List<ProductDto>> findAll() {
+        return ResponseEntity.ok(productService.findAll());
     }
 
     @PutMapping("/add")

@@ -1,0 +1,20 @@
+<div class="mt-4 row d-flex-wrap justify-content-around">
+  <div *ngIf="!categories || categories.length === 0" class="col-12">
+    <div class="col-auto mx-auto text-center align-self-baseline">
+      <div><p class="not-found">Not found categories</p></div>
+    </div>
+  </div>
+  <div *ngFor="let category of categories, let index = index" class="col-4">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{category.title}}</h5>
+        <p class="card-text">
+          {{category.alias}}
+        </p>
+        <button class="site-btn" routerLink="/item-category/{{category.id}}" type="button">Go
+          to {{category.title}} products
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
