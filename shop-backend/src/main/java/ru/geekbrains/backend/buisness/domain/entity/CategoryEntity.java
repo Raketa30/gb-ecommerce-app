@@ -31,6 +31,7 @@ public class CategoryEntity {
     private String alias;
 
     @ManyToMany(mappedBy = "categories")
+    @JsonIgnore
     private Set<ProductEntity> products = new HashSet<>();
 
     @ManyToOne

@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import static ru.geekbrains.backend.constants.NameConstant.AUTH;
+import static ru.geekbrains.backend.constants.NameConstant.*;
 
 
 @Component
@@ -33,13 +33,24 @@ public class AuthTokenFilter extends OncePerRequestFilter {
     private JwtUtils jwtUtils;
     private CookieUtils cookieUtils;
 
-    private List<String> permitURL = Arrays.asList(
+    private final List<String> permitURL = Arrays.asList(
             AUTH + "/register",
             AUTH + "/login",
             AUTH + "/activate-account",
             AUTH + "/test-no-auth",
             AUTH + "/send-reset-password-email",
-            AUTH + "/resend-activate-email"
+            AUTH + "/resend-activate-email",
+            PRODUCT + "/all",
+            PRODUCT + "/list",
+            CATEGORY + "/all",
+            CATEGORY + "/list",
+            CATEGORY + "/category-id",
+            "/v2/api-docs",
+            "/configuration/ui",
+            "/swagger-resources/**",
+            "/configuration/**",
+            "/swagger-ui.html",
+            "/webjars/**"
     );
 
     @Autowired

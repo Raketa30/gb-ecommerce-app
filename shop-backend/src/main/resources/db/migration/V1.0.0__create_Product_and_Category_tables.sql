@@ -42,18 +42,18 @@ VALUES (2, 'test2', 'test_alias2', 1),
        (5, 'test5', 'test_alias5', 3);
 
 INSERT INTO product(id, title, description, cost, img_link)
-VALUES (1, 'test_product1', 'test description', 0.01, '/static/img/empty.png'),
-       (2, 'test_product2', 'test description', 0.01, '/static/img/empty.png'),
-       (3, 'test_product3', 'test description', 0.01, '/static/img/empty.png'),
-       (4, 'test_product4', 'test description', 0.01, '/static/img/empty.png'),
-       (5, 'test_product5', 'test description', 0.01, '/static/img/empty.png'),
-       (6, 'test_product6', 'test description', 0.01, '/static/img/empty.png'),
-       (7, 'test_product7', 'test description', 0.01, '/static/img/empty.png'),
-       (8, 'test_product8', 'test description', 0.01, '/static/img/empty.png'),
-       (9, 'test_product9', 'test description', 0.01, '/static/img/empty.png'),
-       (10, 'test_product10', 'test description', 0.01, '/static/img/empty.png'),
-       (11, 'test_product11', 'test description', 0.01, '/static/img/empty.png'),
-       (12, 'test_product12', 'test description', 0.01, '/static/img/empty.png');
+VALUES (1, 'test_product1', 'test description', 0.01, 'assets/img/products/1.jpg'),
+       (2, 'test_product2', 'test description', 0.01, 'assets/img/products/1.jpg'),
+       (3, 'test_product3', 'test description', 0.01, 'assets/img/products/1.jpg'),
+       (4, 'test_product4', 'test description', 0.01, 'assets/img/products/1.jpg'),
+       (5, 'test_product5', 'test description', 0.01, 'assets/img/products/1.jpg'),
+       (6, 'test_product6', 'test description', 0.01, 'assets/img/products/1.jpg'),
+       (7, 'test_product7', 'test description', 0.01, 'assets/img/products/1.jpg'),
+       (8, 'test_product8', 'test description', 0.01, 'assets/img/products/1.jpg'),
+       (9, 'test_product9', 'test description', 0.01, 'assets/img/products/1.jpg'),
+       (10, 'test_product10', 'test description', 0.01, 'assets/img/products/1.jpg'),
+       (11, 'test_product11', 'test description', 0.01, 'assets/img/products/1.jpg'),
+       (12, 'test_product12', 'test description', 0.01, 'assets/img/products/1.jpg');
 
 
 INSERT INTO product_category(product_id, category_id)

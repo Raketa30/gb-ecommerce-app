@@ -1,0 +1,37 @@
+/*------------------
+  Header section
+---------------------*/
+.main-menu {
+  list-style: none;
+  margin: 0 auto;
+}
+
+.login,
+.main-menu li a {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #fff;
+  padding: 8px 5px 0;
+  margin-left: 20px;
+}
+
+.header-right .card-bag {
+  position: relative;
+  text-align: center;
+}
+
+.header-right .card-bag span {
+  position: absolute;
+  width: 23px;
+  height: 23px;
+  left: -7px;
+  bottom: -7px;
+  padding-top: 3px;
+  border-radius: 50px;
+  background: #414141;
+  font-size: 12px;
+  color: #fff;
+}
+
+

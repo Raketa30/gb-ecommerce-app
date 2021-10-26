@@ -5,10 +5,13 @@ import org.springframework.stereotype.Repository;
 import ru.geekbrains.backend.buisness.domain.entity.CategoryEntity;
 
 import java.util.List;
+import java.util.Set;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<CategoryEntity, Long> {
-    List<CategoryEntity> findAllByIdInAndParentCategoryIsNotNull(List<Long> categoryIdList);
+    Set<CategoryEntity> findAllByIdInAndParentCategoryIsNotNull(List<Long> categoryIdList);
+
+    List<CategoryEntity> findCategoryEntitiesByParentCategoryIsNotNull();
 
     CategoryEntity findByAlias(String parentCategoryAlias);
 
