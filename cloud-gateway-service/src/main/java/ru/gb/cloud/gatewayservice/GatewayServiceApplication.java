@@ -1,4 +1,4 @@
-package ru.geekbrains.backend;
+package ru.gb.cloud.gatewayservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
 @EnableEurekaClient
-public class OnlineShopApplication {
+public class GatewayServiceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(OnlineShopApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(GatewayServiceApplication.class, args);
+    }
 
 }
